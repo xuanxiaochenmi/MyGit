@@ -1,7 +1,9 @@
 from abc import ABCMeta ,abstractmethod
 class Singleton:
+    _instance = None
     def __new__(cls,*args,**kwargs):
-        if not hasattr(cls,'_instance'):
+        # 判断是否有实例，没有实例则创建实例，有实例则直接返回实例
+        if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
 
